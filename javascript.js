@@ -1,25 +1,19 @@
-// This program performs a single game of Rock paper scissors, and then
+// This program performs a single game of Rock Paper Scissors, and then
 // a game to 3 of RPS
 
-function log() {
-    console.log('Clicked');
-};
 
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         console.log(button.id);
-        let winner = playRound(button.id.toUpperCase(), getComputerChoice().toUpperCase());
+        let winner = playRound(button.id, getComputerChoice());
         alert(winner);
     });
 });
 
 
-
-
-
-// Returns random selection from rock/paper/scissors
+// Returns random selection from Rock/Paper/Scissors
 
 function getComputerChoice() {
     let myarr = ['Rock', 'Paper', 'Scissors']
@@ -48,26 +42,26 @@ function getUserChoice() {
 function playRound(user, comp) {
     if (user == comp) {
         return "It's a tie!"
-    } else if (user == 'ROCK'){
+    } else if (user == 'Rock'){
         switch (comp) {
-            case 'PAPER':
+            case 'Paper':
                 return "" + comp + ' beats ' + user + '! You lose!';
-            case 'SCISSORS':
+            case 'Scissors':
                 return "" + user + ' beats ' + comp + '! You win!';                
         }
         
-    } else if (user == 'PAPER') {
+    } else if (user == 'Paper') {
         switch (comp) {
-            case 'SCISSORS':
+            case 'Scissors':
                 return "" + comp + ' beats ' + user + '! You lose!';
-            case 'ROCK':
+            case 'Rock':
                 return "" + user + ' beats ' + comp + '! You win!';                
         }
     } else {
         switch (comp) {
-            case 'ROCK':
+            case 'Rock':
                 return "" + comp + ' beats ' + user + '! You lose!';
-            case 'PAPER':
+            case 'Paper':
                 return "" + user + ' beats ' + comp + '! You win!';                
         }
     }

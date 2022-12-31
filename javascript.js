@@ -119,9 +119,12 @@ function game() {
     scoreDisplay.style.cssText = 'border: 2px solid black; background-color: rgb(150, 239, 150)';
     const boxHeading = document.createElement('h1');
     boxHeading.textContent = "Score";
+    boxHeading.style.cssText = 'padding: 15px 100px';
     scoreDisplay.appendChild(boxHeading);
     const userTally = document.createElement('p');
     const compTally = document.createElement('p');
+    userTally.style.cssText = 'padding: 5px 20px';
+    compTally.style.cssText = 'padding: 5px 20px';
     scoreDisplay.appendChild(userTally);
     scoreDisplay.appendChild(compTally);
     buttons.appendChild(scoreDisplay);
@@ -134,18 +137,17 @@ function game() {
     rpsButtons.forEach((button) => {
             button.addEventListener('click', () => {
                 console.log(button.id);
-                while (userScore < 3 && compScore < 3) {
                     winner = playRound(button.id, getComputerChoice());
                     if (winner == 'comp') {
                         compScore++
-                        compTally.textContent = "Comp Score: " + compScore;
+                        compTally.textContent = "Comp: " + compScore;
                     } else if (winner == 'user') {
                         userScore++
-                        userTally.textContent = "User Score: " + userScore;
+                        userTally.textContent = "User: " + userScore;
                     }
-                }
+                
             });
-        });
+    });
     
     
 

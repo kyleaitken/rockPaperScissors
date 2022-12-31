@@ -2,9 +2,10 @@
 // a game to 3 of RPS
 
 
-const buttons = document.querySelectorAll('button');
+const rpsButtons = document.querySelectorAll('.rpsButton');
+const div = document.createElement('div');
 
-buttons.forEach((button) => {
+rpsButtons.forEach((button) => {
     button.addEventListener('click', () => {
         console.log(button.id);
         let winner = playRound(button.id, getComputerChoice());

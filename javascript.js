@@ -1,6 +1,22 @@
 // This program performs a single game of Rock paper scissors, and then
 // a game to 3 of RPS
 
+function log() {
+    console.log('Clicked');
+};
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(button.id);
+        let winner = playRound(button.id.toUpperCase(), getComputerChoice().toUpperCase());
+        alert(winner);
+    });
+});
+
+
+
 
 
 // Returns random selection from rock/paper/scissors
@@ -8,6 +24,8 @@
 function getComputerChoice() {
     let myarr = ['Rock', 'Paper', 'Scissors']
     let randomElem = myarr[Math.floor(Math.random() * myarr.length)]
+    console.log(randomElem);
+    alert("Computer chooses " + randomElem + ".");
     return randomElem
 }
 
@@ -24,39 +42,43 @@ function getUserChoice() {
 }
 
 
+
 // Plays one round of RPS
 
 function playRound(user, comp) {
     if (user == comp) {
         return "It's a tie!"
-    } else if (user == 'Rock'){
+    } else if (user == 'ROCK'){
         switch (comp) {
-            case 'Paper':
+            case 'PAPER':
                 return "" + comp + ' beats ' + user + '! You lose!';
-            case 'Scissors':
+            case 'SCISSORS':
                 return "" + user + ' beats ' + comp + '! You win!';                
         }
         
-    } else if (user == 'Paper') {
+    } else if (user == 'PAPER') {
         switch (comp) {
-            case 'Scissors':
+            case 'SCISSORS':
                 return "" + comp + ' beats ' + user + '! You lose!';
-            case 'Rock':
+            case 'ROCK':
                 return "" + user + ' beats ' + comp + '! You win!';                
         }
     } else {
         switch (comp) {
-            case 'Rock':
+            case 'ROCK':
                 return "" + comp + ' beats ' + user + '! You lose!';
-            case 'Paper':
+            case 'PAPER':
                 return "" + user + ' beats ' + comp + '! You win!';                
         }
     }
 
 }
 
-let winner = playRound(getUserChoice(), getComputerChoice())
-alert(winner)
+
+//let winner = playRound(getUserChoice(), getComputerChoice())
+//alert(winner)
+
+
 
 
 
@@ -97,7 +119,9 @@ function game() {
     let userScore = 0
     let compScore = 0
     
-    while (userScore < 3 && compScore < 3) {
+    //while (userScore < 3 && compScore < 3) 
+    
+    while (true) {
         let winner = playRoundScored(getUserChoice(), getComputerChoice())
         if (winner == 'comp') {
             compScore++
@@ -106,15 +130,17 @@ function game() {
         }
     }
 
+    /*
     if (userScore == 3) {
         alert("User wins!")
     } else {
         alert("Computer wins!")
     }
+    */
     
 }
 
-game()
+//game()
 
 
 

@@ -2,17 +2,6 @@
 // a game to 3 of RPS
 
 
-const rpsButtons = document.querySelectorAll('.rpsButton');
-const div = document.createElement('div');
-
-rpsButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        console.log(button.id);
-        let winner = playRound(button.id, getComputerChoice());
-        alert(winner);
-    });
-});
-
 
 // Returns random selection from Rock/Paper/Scissors
 
@@ -20,7 +9,6 @@ function getComputerChoice() {
     let myarr = ['Rock', 'Paper', 'Scissors']
     let randomElem = myarr[Math.floor(Math.random() * myarr.length)]
     console.log(randomElem);
-    alert("Computer chooses " + randomElem + ".");
     return randomElem
 }
 
@@ -41,29 +29,37 @@ function getUserChoice() {
 // Plays one round of RPS
 
 function playRound(user, comp) {
+    console.log(user);
+    console.log(comp);
     if (user == comp) {
-        return "It's a tie!"
+        return "tie"
     } else if (user == 'Rock'){
         switch (comp) {
             case 'Paper':
-                return "" + comp + ' beats ' + user + '! You lose!';
+                alert("" + comp + ' beats ' + user);
+                return 'comp';
             case 'Scissors':
-                return "" + user + ' beats ' + comp + '! You win!';                
+                alert("" + user + ' beats ' + comp);
+                return 'user';                
         }
         
     } else if (user == 'Paper') {
         switch (comp) {
             case 'Scissors':
-                return "" + comp + ' beats ' + user + '! You lose!';
+                alert("" + comp + ' beats ' + user);
+                return 'comp';
             case 'Rock':
-                return "" + user + ' beats ' + comp + '! You win!';                
+                alert("" + user + ' beats ' + comp);
+                return 'user';                
         }
     } else {
         switch (comp) {
             case 'Rock':
-                return "" + comp + ' beats ' + user + '! You lose!';
+                alert("" + comp + ' beats ' + user);
+                return 'comp';
             case 'Paper':
-                return "" + user + ' beats ' + comp + '! You win!';                
+                alert("" + user + ' beats ' + comp);
+                return 'user';                
         }
     }
 
@@ -76,7 +72,7 @@ function playRound(user, comp) {
 
 
 
-
+/*
 // Plays a game of RPS to best of 5/first to 3
 
 function playRoundScored(user, comp) {
@@ -107,23 +103,51 @@ function playRoundScored(user, comp) {
     }
 
 }
+*/
 
 // Runs a game of RPS, with first to 3 declared the winner 
 
 function game() {
-    let userScore = 0
-    let compScore = 0
-    
+    let userScore = 0;
+    let compScore = 0;
+    var winner;
+
+    // Add a new score display section at bottom
+    const buttons = document.querySelector('.buttons');
+    const scoreDisplay = document.createElement('div');
+    scoreDisplay.classList.add('scoreDisplay');
+    scoreDisplay.style.cssText = 'border: 2px solid black; background-color: rgb(150, 239, 150)';
+    const boxHeading = document.createElement('h1');
+    boxHeading.textContent = "Score";
+    scoreDisplay.appendChild(boxHeading);
+    const userTally = document.createElement('p');
+    const compTally = document.createElement('p');
+    scoreDisplay.appendChild(userTally);
+    scoreDisplay.appendChild(compTally);
+    buttons.appendChild(scoreDisplay);
+
+    // Add listeners to buttons
+    const rpsButtons = document.querySelectorAll('.rpsButton');
     //while (userScore < 3 && compScore < 3) 
+        
     
-    while (true) {
-        let winner = playRoundScored(getUserChoice(), getComputerChoice())
-        if (winner == 'comp') {
-            compScore++
-        } else if (winner == 'user') {
-            userScore++
-        }
-    }
+    rpsButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                console.log(button.id);
+                while (userScore < 3 && compScore < 3) {
+                    winner = playRound(button.id, getComputerChoice());
+                    if (winner == 'comp') {
+                        compScore++
+                        compTally.textContent = "Comp Score: " + compScore;
+                    } else if (winner == 'user') {
+                        userScore++
+                        userTally.textContent = "User Score: " + userScore;
+                    }
+                }
+            });
+        });
+    
+    
 
     /*
     if (userScore == 3) {
@@ -135,7 +159,6 @@ function game() {
     
 }
 
-//game()
 
 
 

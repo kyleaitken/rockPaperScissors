@@ -10,7 +10,36 @@
 
 .buttons {
     display: flex;
-    align-content: center;
-    
-    
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+
+button {
+    height: 80px;
+    width: 120px;
+    margin: 5vh;
+    background-color: rgb(139, 139, 198);
+    border-radius: .6rem;
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 0.5rem black;
+    cursor: pointer; 
+    position: relative;
+    border: 2px solid black;
+}
+
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button:active {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+       -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+            box-shadow: inset 0px 0px 5px #c1c1c1;
+     outline: none;
 }

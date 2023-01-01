@@ -71,9 +71,7 @@ function game() {
     const compTally = document.querySelector('#compTally');
 
     // Add listeners to buttons
-    const rpsButtons = document.querySelectorAll('.rpsButton');
-    //while (userScore < 3 && compScore < 3) 
-        
+    const rpsButtons = document.querySelectorAll('.rpsButton');        
     
     rpsButtons.forEach((button) => {
         button.addEventListener('click', () => {
@@ -86,7 +84,6 @@ function game() {
                     alert("Computer wins!");
                     return;
                 }
-                //compTally.textContent = "Comp: " + compScore;
             } else if (winner == 'user') {
                 userScore++
                 userTally.textContent = 'User: ' + userScore;
@@ -94,21 +91,11 @@ function game() {
                     alert("User wins!");
                     return;
                 }
-              //userTally.textContent = "User: " + userScore;
             }
         
         });
     });
-    
-    
 
-    /*
-    if (userScore == 3) {
-        alert("User wins!")
-    } else {
-        alert("Computer wins!")
-    }
-    */
     
 }
 

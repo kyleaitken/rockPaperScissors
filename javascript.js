@@ -66,24 +66,9 @@ function game() {
     let compScore = 0;
     var winner;
 
-    /*
-    // Add a new score display section at bottom
-    const buttons = document.querySelector('.buttons');
-    const scoreDisplay = document.createElement('div');
-    scoreDisplay.classList.add('scoreDisplay');
-    scoreDisplay.style.cssText = 'border: 2px solid black; background-color: rgb(150, 239, 150)';
-    const boxHeading = document.createElement('h1');
-    boxHeading.textContent = "Score";
-    boxHeading.style.cssText = 'padding: 15px 100px';
-    scoreDisplay.appendChild(boxHeading);
-    const userTally = document.createElement('p');
-    const compTally = document.createElement('p');
-    userTally.style.cssText = 'padding: 5px 20px';
-    compTally.style.cssText = 'padding: 5px 20px';
-    scoreDisplay.appendChild(userTally);
-    scoreDisplay.appendChild(compTally);
-    buttons.appendChild(scoreDisplay);
-    */
+   
+    const userTally = document.querySelector('#userTally');
+    const compTally = document.querySelector('#compTally');
 
     // Add listeners to buttons
     const rpsButtons = document.querySelectorAll('.rpsButton');
@@ -96,10 +81,20 @@ function game() {
             winner = playRound(button.id, getComputerChoice());
             if (winner == 'comp') {
                 compScore++
+                compTally.textContent = 'Computer: ' + compScore;
+                if (compScore >= 3) {
+                    alert("Computer wins!");
+                    return;
+                }
                 //compTally.textContent = "Comp: " + compScore;
             } else if (winner == 'user') {
                 userScore++
-                //userTally.textContent = "User: " + userScore;
+                userTally.textContent = 'User: ' + userScore;
+                if (userScore >= 3) {
+                    alert("User wins!");
+                    return;
+                }
+              //userTally.textContent = "User: " + userScore;
             }
         
         });

@@ -13,17 +13,6 @@ function getComputerChoice() {
 }
 
 
-// Prompts user for choice of RPS
-
-function getUserChoice() {
-    var userSelection
-    do {
-        (userSelection = prompt("Enter: Rock, Paper, or Scissors"))
-    } while (!(userSelection == 'Rock' || userSelection == 'Paper' || 
-             userSelection == 'Scissors'))
-    return userSelection
-}
-
 
 
 // Plays one round of RPS
@@ -66,44 +55,9 @@ function playRound(user, comp) {
 }
 
 
-//let winner = playRound(getUserChoice(), getComputerChoice())
-//alert(winner)
 
 
 
-
-/*
-// Plays a game of RPS to best of 5/first to 3
-
-function playRoundScored(user, comp) {
-    if (user == comp) {
-        return 'tie'
-    } else if (user == 'Rock'){
-        switch (comp) {
-            case 'Paper':
-                return 'comp';
-            case 'Scissors':
-                return 'user';                
-        }
-        
-    } else if (user == 'Paper') {
-        switch (comp) {
-            case 'Scissors':
-                return 'comp';
-            case 'Rock':
-                return 'user';                
-        }
-    } else {
-        switch (comp) {
-            case 'Rock':
-                return 'comp';
-            case 'Paper':
-                return 'user';                
-        }
-    }
-
-}
-*/
 
 // Runs a game of RPS, with first to 3 declared the winner 
 
@@ -112,6 +66,7 @@ function game() {
     let compScore = 0;
     var winner;
 
+    /*
     // Add a new score display section at bottom
     const buttons = document.querySelector('.buttons');
     const scoreDisplay = document.createElement('div');
@@ -128,6 +83,7 @@ function game() {
     scoreDisplay.appendChild(userTally);
     scoreDisplay.appendChild(compTally);
     buttons.appendChild(scoreDisplay);
+    */
 
     // Add listeners to buttons
     const rpsButtons = document.querySelectorAll('.rpsButton');
@@ -135,18 +91,18 @@ function game() {
         
     
     rpsButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                console.log(button.id);
-                    winner = playRound(button.id, getComputerChoice());
-                    if (winner == 'comp') {
-                        compScore++
-                        compTally.textContent = "Comp: " + compScore;
-                    } else if (winner == 'user') {
-                        userScore++
-                        userTally.textContent = "User: " + userScore;
-                    }
-                
-            });
+        button.addEventListener('click', () => {
+            console.log(button.id);
+            winner = playRound(button.id, getComputerChoice());
+            if (winner == 'comp') {
+                compScore++
+                //compTally.textContent = "Comp: " + compScore;
+            } else if (winner == 'user') {
+                userScore++
+                //userTally.textContent = "User: " + userScore;
+            }
+        
+        });
     });
     
     

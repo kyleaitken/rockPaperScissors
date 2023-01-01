@@ -48,3 +48,15 @@ button:active {
             box-shadow: inset 0px 0px 5px #c1c1c1;
      outline: none;
 }
+
+.scorebox {
+    border: 2px solid black;
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+    margin: 20px;
+}
+
+p {
+    text-align: left;
+}

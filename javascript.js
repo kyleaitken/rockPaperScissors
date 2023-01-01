@@ -1,8 +1,6 @@
 // This program performs a single game of Rock Paper Scissors, and then
 // a game to 3 of RPS
 
-
-
 // Returns random selection from Rock/Paper/Scissors
 
 function getComputerChoice() {
@@ -21,33 +19,34 @@ function playRound(user, comp) {
     console.log(user);
     console.log(comp);
     if (user == comp) {
-        return "tie"
+        alert("It's a tie")
+        return;
     } else if (user == 'Rock'){
         switch (comp) {
             case 'Paper':
-                alert("" + comp + ' beats ' + user);
+                alert("" + comp + ' beats ' + user + '. Computer wins this round.');
                 return 'comp';
             case 'Scissors':
-                alert("" + user + ' beats ' + comp);
+                alert("" + user + ' beats ' + comp + '. You win this round.');
                 return 'user';                
         }
         
     } else if (user == 'Paper') {
         switch (comp) {
             case 'Scissors':
-                alert("" + comp + ' beats ' + user);
+                alert("" + comp + ' beats ' + user + '. Computer wins this round.');
                 return 'comp';
             case 'Rock':
-                alert("" + user + ' beats ' + comp);
+                alert("" + user + ' beats ' + comp + '. You win this round.');
                 return 'user';                
         }
     } else {
         switch (comp) {
             case 'Rock':
-                alert("" + comp + ' beats ' + user);
+                alert("" + comp + ' beats ' + user + '. Computer wins this round.');
                 return 'comp';
             case 'Paper':
-                alert("" + user + ' beats ' + comp);
+                alert("" + user + ' beats ' + comp + '. You win this round.');
                 return 'user';                
         }
     }
@@ -66,16 +65,16 @@ function game() {
     let compScore = 0;
     var winner;
 
-   
     const userTally = document.querySelector('#userTally');
     const compTally = document.querySelector('#compTally');
+    userTally.textContent = 'User: ' + userScore;
+    compTally.textContent = 'Computer: ' + compScore;
 
     // Add listeners to buttons
     const rpsButtons = document.querySelectorAll('.rpsButton');        
     
     rpsButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            console.log(button.id);
             winner = playRound(button.id, getComputerChoice());
             if (winner == 'comp') {
                 compScore++

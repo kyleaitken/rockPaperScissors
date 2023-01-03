@@ -1,6 +1,14 @@
 // This program performs a single game of Rock Paper Scissors, and then
 // a game to 3 of RPS
 
+const pointsToWin = 5;
+
+
+const newGameButton = document.querySelector('#newGame');
+newGameButton.addEventListener('click', () => {
+    alert("Time to play rock, paper, scissors! Select one of the 3 icons to pick your throw. First to " + pointsToWin + " wins!");
+    game();
+});
 
 // Returns random selection from Rock/Paper/Scissors
 
@@ -10,8 +18,6 @@ function getComputerChoice() {
     console.log(randomElem);
     return randomElem
 }
-
-
 
 
 // Plays one round of RPS
@@ -76,15 +82,15 @@ function game() {
             if (winner == 'comp') {
                 compScore++
                 compTally.textContent = 'Computer: ' + compScore;
-                if (compScore >= 3) {
+                if (compScore >= pointsToWin) {
                     alert("Computer wins!");
                     return;
                 }
             } else if (winner == 'user') {
                 userScore++
                 userTally.textContent = 'User: ' + userScore;
-                if (userScore >= 3) {
-                    alert("User wins!");
+                if (userScore >= pointsToWin) {
+                    alert("You win!");
                     return;
                 }
             }

@@ -37,7 +37,7 @@ img {
 }
 
 #newGame {
-    background-color: #db9854;
+    background-color: #549cdb;
     height: 80px;
     width: 120px;
     margin: 5vh;
@@ -66,13 +66,19 @@ button:hover {
 
 
 .scorebox {
-    border: 2px solid black;
-    width: 30%;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 20%;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     margin: 20px;
 }
 
 p {
     text-align: left;
+}
+
+h3 {
+    margin: 0;
+    text-decoration: underline;
 }

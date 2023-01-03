@@ -1,6 +1,7 @@
 // This program performs a single game of Rock Paper Scissors, and then
 // a game to 3 of RPS
 
+
 // Returns random selection from Rock/Paper/Scissors
 
 function getComputerChoice() {
@@ -55,23 +56,19 @@ function playRound(user, comp) {
 
 
 
-
-
-
 // Runs a game of RPS, with first to 3 declared the winner 
 
 function game() {
+    var winner;
     let userScore = 0;
     let compScore = 0;
-    var winner;
-
     const userTally = document.querySelector('#userTally');
     const compTally = document.querySelector('#compTally');
     userTally.textContent = 'User: ' + userScore;
     compTally.textContent = 'Computer: ' + compScore;
 
     // Add listeners to buttons
-    const rpsButtons = document.querySelectorAll('.rpsButton');        
+    const rpsButtons = document.querySelectorAll('.rpsButton');  
     
     rpsButtons.forEach((button) => {
         button.addEventListener('click', () => {

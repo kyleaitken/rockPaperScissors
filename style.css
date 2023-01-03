@@ -8,6 +8,7 @@
     font-family: sans-serif;
 }
 
+
 .buttons {
     display: flex;
     flex-direction: column;
@@ -19,10 +20,27 @@
 
 
 button {
+    all: unset;
+    cursor: pointer; 
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    width: 120px;
+    height: auto;
+    margin: 1vh;
+    padding: 80px;
+}
+
+#newGame {
+    background-color: #db9854;
     height: 80px;
     width: 120px;
     margin: 5vh;
-    background-color: rgb(139, 139, 198);
     border-radius: .6rem;
     color: white;
     text-align: center;
@@ -32,8 +50,13 @@ button {
     border: 2px solid black;
 }
 
-#newGame {
-    background-color: #db9854;
+#newGame:active {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+    outline: none;
+
 }
 
 
@@ -41,13 +64,6 @@ button:hover {
     transform: scale(1.1);
 }
 
-button:active {
-    background: #e5e5e5;
-    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-       -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-            box-shadow: inset 0px 0px 5px #c1c1c1;
-     outline: none;
-}
 
 .scorebox {
     border: 2px solid black;
